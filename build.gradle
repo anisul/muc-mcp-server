@@ -37,3 +37,14 @@ dependencyManagement {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+jar {
+	enabled = false
+	archiveClassifier = ''
+}
+
+bootJar {
+	enabled = true
+	archiveClassifier = ''
+	mainClass = 'dev.cyanide.muc_mcp_server.MucMcpServerApplication'
+}
