@@ -1,6 +1,6 @@
 package dev.cyanide.muc_mcp_server;
 
-import dev.cyanide.muc_mcp_server.service.StationService;
+import dev.cyanide.muc_mcp_server.service.TransportService;
 import org.springframework.ai.support.ToolCallbacks;
 import org.springframework.ai.tool.ToolCallback;
 import org.springframework.boot.SpringApplication;
@@ -17,7 +17,7 @@ public class MucMcpServerApplication {
 	}
 
 	@Bean
-	public List<ToolCallback> getTools(StationService stationService) {
-		return List.of(ToolCallbacks.from(stationService));
+	public List<ToolCallback> getTools(TransportService transportService) {
+		return List.of(ToolCallbacks.from(transportService));
 	}
 }
