@@ -4,6 +4,7 @@ package dev.cyanide.muc_mcp_server.service;
 import dev.cyanide.muc_mcp_server.client.MVGClient;
 import dev.cyanide.muc_mcp_server.types.Departure;
 import dev.cyanide.muc_mcp_server.types.Location;
+import dev.cyanide.muc_mcp_server.types.Station;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.stereotype.Service;
 
@@ -38,5 +39,15 @@ public class TransportService {
     @Tool(name = "mvg_get_departures_from_station", description = "Get a list of departures from a given station ID")
     public List<Departure> getDeparturesFromStation(String stationId, Integer limit, Integer offsetInMinutes) {
         return mvgClient.getDepartures(stationId, limit, offsetInMinutes);
+    }
+
+    @Tool(name = "mvg_get_stations", description = "Get a list of stations in Munich")
+    public List<Station> getStations() {
+        return mvgClient.getStations();
+    }
+
+    @Tool(name = "mvg_get_station", description = "Get station details by ID")
+    public Station getStationById(String stationId) {
+        return mvgClient.getStationById(stationId);
     }
 }
